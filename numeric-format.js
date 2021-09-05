@@ -29,9 +29,22 @@
   var NumericFormat = {};
 
   NumericFormat.numberWithCommas = numberWithCommas;
+  NumericFormat.compactNumber = compactNumber;
 
   function numberWithCommas(_number) {
     return _number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
+  function compactNumber(_number) {
+    var suffixes = ['', 'k', 'm', 'b', 't'];
+    var suffixNum = Math.floor(('' + _number).length / 3);
+    var shortValue = parseFloat(
+      (suffixNum !== 0 ? _number / Math.pow(1000, suffixNum) : _number).toPrecision(2)
+    );
+    if (shortValue % 1 !== 0) {
+      shortValue = shortValue.toFixed(1);
+    }
+    return shortValue + suffixes[suffixNum];
   }
 
   return NumericFormat;
