@@ -30,5 +30,9 @@
 
   NumericFormat.numberWithCommas = numberWithCommas;
 
+  function numberWithCommas(_number) {
+    return _number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
   return NumericFormat;
 });
