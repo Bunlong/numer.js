@@ -2,73 +2,94 @@
 
 Convert a number inputted into the different formats.
 
-<!--
+## 🎁 Features
 
-const numberWithCommas = (number) => {
-  return number
-    .toString()
-    .replace(
-      /\B(?=(\d{3})+(?!\d))/g,
-      ","
-    );
-}
+* numberWithCommas
+* compactNumber
+* ordinalSuffix
+* getRandomInt
 
-Use case
+## 🔧 Install
 
-Readable number formatting
+numeric-format is available on npm. It can be installed with the following command:
+
+```
+npm install numeric-format --save
+```
+
+numeric-format is available on yarn as well. It can be installed with the following command:
+
+```
+yarn add numeric-format --save
+```
+
+## 💡 Usage
+
+### 🎀 numberWithCommas
+
+Readable number formatting.
+
+```js
 const value = numberWithCommas(22200000);
+```
 
-const compactNumber = (value) => {
-  const suffixes = ['', 'k', 'm', 'b', 't'];
-  const suffixNum = Math.floor(('' + value).length/3);
-  let shortValue = 
-    parseFloat(
-      (suffixNum != 0
-        ? (value/Math.pow(1000, suffixNum))
-        : value)
-      .toPrecision(2));
-  if (shortValue % 1 != 0) {
-    shortValue = shortValue.toFixed(1);
-  }
-  return shortValue + suffixes[suffixNum];
-}
+### 🎀 compactNumber
 
-Use case
-Compact number formatting
+Compact number formatting,
 
+```js
 const value = compactNumber(22000000);
+```
 
-const ordinalSuffix = (number) => {
-  let i = number % 10,
-      k = number % 100;
-  if (j == 1 && k != 11) {
-    return `${number}st`;
-  }
-  if (j == 2 && k != 12) {
-    return `${number}nd`;
-  }
-  if (j == 3 && k != 13) {
-    return `${number}rd`;
-  }
-  return return `${number}th`;
-}
+### 🎀 ordinalSuffix
 
-Use case
+Format rankings or positions.
 
-Format rankings or positions
-
+```js
 const ranking = ordinalSuffix(1);
+```
 
-const getRandomInt = (min, max) => {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+### 🎀 getRandomInt
 
-Use case 
+Show a CTA in random positions.
 
-Show a CTA in random positions
-
+```js
 const indexToAppear = getRandomInt(0, array.length);
+```
 
--->
+## ❗ Issues
+
+If you think any of the `numeric-format` can be improved, please do open a PR with any updates and submit any issues. Also, I will continue to improve this, so you might want to watch/star this repository to revisit.
+
+## 💪 Contribution
+
+We'd love to have your helping hand on contributions to `numeric-format` by forking and sending a pull request!
+
+Your contributions are heartily ♡ welcome, recognized and appreciated. (✿◠‿◠)
+
+How to contribute:
+
+- Open pull request with improvements
+- Discuss ideas in issues
+- Spread the word
+- Reach out with any feedback
+
+## 🏆 Contributors
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/Bunlong">
+        <img src="https://avatars0.githubusercontent.com/u/1308397?s=400&u=945dc6b97571e2b98b659d34b1c81ae2514046bf&v=4" width="100" alt="Bunlong" />
+        <br />
+        <sub>
+          <b>Bunlong</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
+## ⚖️ License
+
+The MIT License [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

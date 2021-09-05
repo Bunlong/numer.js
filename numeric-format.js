@@ -31,6 +31,7 @@
   NumericFormat.numberWithCommas = numberWithCommas;
   NumericFormat.compactNumber = compactNumber;
   NumericFormat.ordinalSuffix = ordinalSuffix;
+  NumericFormat.getRandomInt = getRandomInt;
 
   function numberWithCommas(_number) {
     return _number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -49,18 +50,24 @@
   }
 
   function ordinalSuffix(_number) {
-    var i = _number % 10;
+    var j = _number % 10;
     var  k = _number % 100;
-    if (j == 1 && k != 11) {
-      return `${_number}st`;
+    if (j === 1 && k !== 11) {
+      return _number + 'st';
     }
-    if (j == 2 && k != 12) {
-      return `${_number}nd`;
+    if (j === 2 && k !== 12) {
+      return _number + 'nd';
     }
-    if (j == 3 && k != 13) {
-      return `${_number}rd`;
+    if (j === 3 && k !== 13) {
+      return _number + 'rd';
     }
-    return `${_number}th`;
+    return _number + 'th';
+  }
+
+  function getRandomInt(_min, _max) {
+    var min = Math.ceil(_min);
+    var max = Math.floor(_max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
   return NumericFormat;
