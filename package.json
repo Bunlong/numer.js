@@ -2,10 +2,10 @@
   "name": "numeric-format",
   "version": "0.1.0",
   "description": "Convert a number inputted into the different formats.",
+  "author": "Bunlong <bunlong.van@gmail.com>",
   "main": "numeric-format.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
   "license": "MIT"
 }
