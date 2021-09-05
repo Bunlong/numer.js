@@ -20,6 +20,7 @@
   ],
   "homepage": "https://github.com/Bunlong/numeric-format",
   "scripts": {
+    "lint": "eslint --no-ignore numeric-format.js Gruntfile.js .eslintrc.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
