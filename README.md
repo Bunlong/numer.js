@@ -1,13 +1,13 @@
 # numer.js
 
-Convert a number inputted into the different formats.
+Convert a number inputted into the different formats with numer.js.
 
 ## 🎁 Features
 
-* numberWithCommas
-* compactNumber
-* ordinalSuffix
-* getRandomInt
+* addCommas
+* abbreviate
+* convertToOrdinal
+* randomInt
 
 ## 🔧 Install
 
@@ -25,40 +25,42 @@ yarn add numer.js --save
 
 ## 💡 Usage
 
-### 🎀 numberWithCommas
+### 🎀 addCommas(number)
 
 Readable number formatting.
 
 ```js
-const value = numberWithCommas(22200000);
+const value = addCommas(22200000);
+
+// => 22,200,000
 ```
 
-### 🎀 compactNumber
+### 🎀 abbreviate(number, decimalPlaces)
 
-Compact number formatting.
+Abbreviate number formatting.
 
 ```js
-const value = compactNumber(22200000);
+const value = abbreviate(22200000, 2);
 
 // => 22m
 ```
 
-### 🎀 ordinalSuffix
+### 🎀 convertToOrdinal(number)
 
 Format rankings or positions.
 
 ```js
-const ranking = ordinalSuffix(1);
+const ranking = convertToOrdinal(1);
 
 // => 1st
 ```
 
-### 🎀 getRandomInt
+### 🎀 randomInt
 
 Show a CTA in random positions.
 
 ```js
-const indexToAppear = getRandomInt(0, array.length);
+const indexToAppear = randomInt(0, array.length);
 ```
 
 ## ❗ Issues

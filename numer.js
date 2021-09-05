@@ -28,40 +28,51 @@
 
   var Numer = {};
 
-  Numer.numberWithCommas = numberWithCommas;
-  Numer.compactNumber = compactNumber;
-  Numer.ordinalSuffix = ordinalSuffix;
-  Numer.getRandomInt = getRandomInt;
+  Numer.addCommas = addCommas;
+  Numer.abbreviate = abbreviate;
+  Numer.convertToOrdinal = convertToOrdinal;
+  Numer.randomInt = randomInt;
 
-  function numberWithCommas(_number) {
+  function addCommas(_number) {
     return _number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
 
-  function compactNumber(_number) {
-    var newValue = _number;
-    if (_number >= 1000) {
-      var suffixes = ['', 'k', 'm', 'b', 't'];
-      var suffixNum = Math.floor(('' + _number).length / 3);
-      var shortValue = '';
-      for (var precision = 2; precision >= 1; precision--) {
-        shortValue = parseFloat(
-          (suffixNum != 0
-            ? _number / Math.pow(1000, suffixNum)
-            : _number
-          ).toPrecision(precision)
-        );
-        var dotLessShortValue = (shortValue + '').replace(/[^a-zA-Z 0-9]+/g, '');
-        if (dotLessShortValue.length <= 2) {
-          break;
+  function abbreviate(_number, decPlaces) {
+    // 2 decimal places => 100, 3 decimal places => 1000, ... etc.
+    decPlaces = Math.pow(10, decPlaces);
+
+    // Enumerate number abbreviations.
+    var abbrev = ['k', 'm', 'b', 't'];
+
+    // Go through the array backwards, so we do the largest first.
+    for (var i = abbrev.length - 1; i >= 0; i--) {
+      // Convert array index to '1000', '1000000', ... etc.
+      var size = Math.pow(10, (i + 1) * 3);
+
+      // If the number is bigger or equal do the abbreviation
+      if (size <= _number) {
+        // We multiply by decPlaces, round, and then divide by decPlaces.
+        // This gives us nice rounding to a particular decimal place.
+        _number = Math.round((_number * decPlaces) / size) / decPlaces;
+
+        // Handle special case where we round up to the next abbreviation
+        if (_number === 1000 && i < abbrev.length - 1) {
+          _number = 1;
+          i++;
         }
+
+        // Add the letter for the abbreviation.
+        _number += abbrev[i];
+
+        // We are done... stop.
+        break;
       }
-      if (shortValue % 1 != 0) shortValue = shortValue.toFixed(1);
-      newValue = shortValue + suffixes[suffixNum];
     }
-    return newValue;
+
+    return _number;
   }
 
-  function ordinalSuffix(_number) {
+  function convertToOrdinal(_number) {
     var j = _number % 10;
     var  k = _number % 100;
     if (j === 1 && k !== 11) {
@@ -76,7 +87,7 @@
     return _number + 'th';
   }
 
-  function getRandomInt(_min, _max) {
+  function randomInt(_min, _max) {
     var min = Math.ceil(_min);
     var max = Math.floor(_max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
