@@ -1,7 +1,7 @@
 {
   "name": "numer.js",
   "version": "0.1.0",
-  "description": "Convert a number inputted into the different formats.",
+  "description": "Convert a number inputted into the different formats with numer.js.",
   "author": "Bunlong <bunlong.van@gmail.com>",
   "main": "numer.js",
   "browser": "numer.min.js",
