@@ -14,9 +14,15 @@
     "url": "https://github.com/Bunlong/numeric-format.git/issues"
   },
   "keywords": [
+    "numeric-format",
+    "numeric",
+    "format"
   ],
   "homepage": "https://github.com/Bunlong/numeric-format",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "grunt": "^1.4.1"
   }
 }
