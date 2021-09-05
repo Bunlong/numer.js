@@ -10,7 +10,7 @@
     module.exports = factory();
   } else {
     // Browser globals (root is window)
-    root.NumericFormat = factory();
+    root.Numer = factory();
   }
 })(this, function() { 'use strict';
   var global = (function() {
@@ -26,12 +26,12 @@
     return {};
   })();
 
-  var NumericFormat = {};
+  var Numer = {};
 
-  NumericFormat.numberWithCommas = numberWithCommas;
-  NumericFormat.compactNumber = compactNumber;
-  NumericFormat.ordinalSuffix = ordinalSuffix;
-  NumericFormat.getRandomInt = getRandomInt;
+  Numer.numberWithCommas = numberWithCommas;
+  Numer.compactNumber = compactNumber;
+  Numer.ordinalSuffix = ordinalSuffix;
+  Numer.getRandomInt = getRandomInt;
 
   function numberWithCommas(_number) {
     return _number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -70,5 +70,5 @@
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  return NumericFormat;
+  return Numer;
 });

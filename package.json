@@ -1,26 +1,26 @@
 {
-  "name": "numeric-format",
+  "name": "numer.js",
   "version": "0.1.0",
   "description": "Convert a number inputted into the different formats.",
   "author": "Bunlong <bunlong.van@gmail.com>",
-  "main": "numeric-format.js",
-  "browser": "numeric-format.min.js",
+  "main": "numer.js",
+  "browser": "numer.min.js",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Bunlong/numeric-format.git"
+    "url": "git+https://github.com/Bunlong/numer.js.git"
   },
   "bugs": {
-    "url": "https://github.com/Bunlong/numeric-format.git/issues"
+    "url": "https://github.com/Bunlong/numer.js.git/issues"
   },
   "keywords": [
-    "numeric-format",
-    "numeric",
-    "format"
+    "numer.js",
+    "format",
+    "numer"
   ],
-  "homepage": "https://github.com/Bunlong/numeric-format",
+  "homepage": "https://github.com/Bunlong/numer.js",
   "scripts": {
-    "lint": "eslint --no-ignore numeric-format.js Gruntfile.js .eslintrc.js",
+    "lint": "eslint --no-ignore numer.js Gruntfile.js .eslintrc.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {

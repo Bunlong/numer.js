@@ -14,7 +14,7 @@ module.exports = function(grunt) {
 			},
 			min: {
 				files: {
-					'numeric-format.min.js': ['numeric-format.js']
+					'numer.min.js': ['numer.js']
 				},
 			},
 		},

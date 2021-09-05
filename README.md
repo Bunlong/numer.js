@@ -1,4 +1,4 @@
-# numeric-format
+# numer.js
 
 Convert a number inputted into the different formats.
 
