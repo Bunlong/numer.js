@@ -38,7 +38,9 @@ const value = numberWithCommas(22200000);
 Compact number formatting.
 
 ```js
-const value = compactNumber(22000000);
+const value = compactNumber(22200000);
+
+// => 22m
 ```
 
 ### 🎀 ordinalSuffix
@@ -47,6 +49,8 @@ Format rankings or positions.
 
 ```js
 const ranking = ordinalSuffix(1);
+
+// => 1st
 ```
 
 ### 🎀 getRandomInt
