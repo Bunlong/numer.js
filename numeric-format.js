@@ -30,6 +30,7 @@
 
   NumericFormat.numberWithCommas = numberWithCommas;
   NumericFormat.compactNumber = compactNumber;
+  NumericFormat.ordinalSuffix = ordinalSuffix;
 
   function numberWithCommas(_number) {
     return _number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -45,6 +46,21 @@
       shortValue = shortValue.toFixed(1);
     }
     return shortValue + suffixes[suffixNum];
+  }
+
+  function ordinalSuffix(_number) {
+    var i = _number % 10;
+    var  k = _number % 100;
+    if (j == 1 && k != 11) {
+      return `${_number}st`;
+    }
+    if (j == 2 && k != 12) {
+      return `${_number}nd`;
+    }
+    if (j == 3 && k != 13) {
+      return `${_number}rd`;
+    }
+    return `${_number}th`;
   }
 
   return NumericFormat;
