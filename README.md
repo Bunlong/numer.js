@@ -11,16 +11,16 @@ Convert a number inputted into the different formats.
 
 ## 🔧 Install
 
-numeric-format is available on npm. It can be installed with the following command:
+numer.js is available on npm. It can be installed with the following command:
 
 ```
-npm install numeric-format --save
+npm install numer.js --save
 ```
 
-numeric-format is available on yarn as well. It can be installed with the following command:
+numer.js is available on yarn as well. It can be installed with the following command:
 
 ```
-yarn add numeric-format --save
+yarn add numer.js --save
 ```
 
 ## 💡 Usage
@@ -35,7 +35,7 @@ const value = numberWithCommas(22200000);
 
 ### 🎀 compactNumber
 
-Compact number formatting,
+Compact number formatting.
 
 ```js
 const value = compactNumber(22000000);
@@ -59,11 +59,11 @@ const indexToAppear = getRandomInt(0, array.length);
 
 ## ❗ Issues
 
-If you think any of the `numeric-format` can be improved, please do open a PR with any updates and submit any issues. Also, I will continue to improve this, so you might want to watch/star this repository to revisit.
+If you think any of the `numer.js` can be improved, please do open a PR with any updates and submit any issues. Also, I will continue to improve this, so you might want to watch/star this repository to revisit.
 
 ## 💪 Contribution
 
-We'd love to have your helping hand on contributions to `numeric-format` by forking and sending a pull request!
+We'd love to have your helping hand on contributions to `numer.js` by forking and sending a pull request!
 
 Your contributions are heartily ♡ welcome, recognized and appreciated. (✿◠‿◠)
 
