@@ -4,7 +4,7 @@
   "description": "Convert a number inputted into the different formats.",
   "author": "Bunlong <bunlong.van@gmail.com>",
   "main": "numeric-format.js",
-  "browser": "numeric-format.js",
+  "browser": "numeric-format.min.js",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "eslint": "^7.32.0",
     "grunt": "^1.4.1",
     "grunt-contrib-uglify": "^5.0.1"
   }
