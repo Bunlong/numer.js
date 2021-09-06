@@ -12,34 +12,38 @@
     // Browser globals (root is window)
     root.Numer = factory();
   }
-})(this, function() { 'use strict';
-  var global = (function() {
-    // alternative method, similar to `Function('return this')()`
-    // but without using `eval` (which is disabled when
-    // using Content Security Policy).
+})(this, function() {
+  'use strict';
+  
+  function Numer(input) {
+    this._input = input;
+  }
 
-    if (typeof self !== 'undefined') { return self; }
-    if (typeof window !== 'undefined') { return window; }
-    if (typeof global !== 'undefined') { return global; }
-
-    // When running tests none of the above have been defined
-    return {};
-  })();
-
-  var Numer = {};
-
-  Numer.addCommas = addCommas;
-  Numer.abbreviate = abbreviate;
-  Numer.convertToOrdinal = convertToOrdinal;
-  Numer.randomInt = randomInt;
+  Numer.prototype = {
+    format: function (number, decPlaces) {
+      var { style } = this._input;
+      var _number = number;
+      var _decPlaces = decPlaces;
+      switch(style) {
+        case 'comma':
+          return addCommas(_number);
+        case 'abbreviation':
+          return abbreviate(_number, _decPlaces)
+        case 'ordinal':
+            return convertToOrdinal(_number)
+        default:
+          throw 'The formatting style to use are comma, abbreviation and ordinal.';
+      }
+    }
+  };
 
   function addCommas(_number) {
     return _number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
 
-  function abbreviate(_number, decPlaces) {
+  function abbreviate(_number, _decPlaces) {
     // 2 decimal places => 100, 3 decimal places => 1000, ... etc.
-    decPlaces = Math.pow(10, decPlaces);
+    _decPlaces = Math.pow(10, _decPlaces);
 
     // Enumerate number abbreviations.
     var abbrev = ['k', 'm', 'b', 't'];
@@ -53,7 +57,7 @@
       if (size <= _number) {
         // We multiply by decPlaces, round, and then divide by decPlaces.
         // This gives us nice rounding to a particular decimal place.
-        _number = Math.round((_number * decPlaces) / size) / decPlaces;
+        _number = Math.round((_number * _decPlaces) / size) / _decPlaces;
 
         // Handle special case where we round up to the next abbreviation
         if (_number === 1000 && i < abbrev.length - 1) {
@@ -73,24 +77,18 @@
   }
 
   function convertToOrdinal(_number) {
-    var j = _number % 10;
-    var  k = _number % 100;
-    if (j === 1 && k !== 11) {
+    var _j = _number % 10;
+    var  _k = _number % 100;
+    if (_j === 1 && _k !== 11) {
       return _number + 'st';
     }
-    if (j === 2 && k !== 12) {
+    if (_j === 2 && _k !== 12) {
       return _number + 'nd';
     }
-    if (j === 3 && k !== 13) {
+    if (_j === 3 && _k !== 13) {
       return _number + 'rd';
     }
     return _number + 'th';
-  }
-
-  function randomInt(_min, _max) {
-    var min = Math.ceil(_min);
-    var max = Math.floor(_max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
   return Numer;

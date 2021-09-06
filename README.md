@@ -4,10 +4,8 @@ Convert a number inputted into the different formats with numer.js.
 
 ## 🎁 Features
 
-* addCommas
-* abbreviate
-* convertToOrdinal
-* randomInt
+* Numer(options) constructor
+  * format() Getter function that formats a number according to the formatting options of this Numer object.
 
 ## 🔧 Install
 
