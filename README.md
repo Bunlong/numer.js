@@ -34,7 +34,7 @@ new Numer(options)
 
 #### Parameters
 
-* Options
+* options
   * An object with some or all of the following properties.
 
 #### style
