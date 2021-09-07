@@ -28,19 +28,16 @@ yarn add numer.js --save
 * Numer(options)
   * Creates a new Numer object.
 
-#### Syntax
-
 ```js
 new Numer(options)
 ```
 
 #### Parameters
 
-##### options
+* Options
+  * An object with some or all of the following properties.
 
-An object with some or all of the following properties:
-
-###### style
+#### style
 
 The formatting style to use.
 
@@ -53,17 +50,14 @@ The formatting style to use.
 * Numer.prototype.format(number)
   * Getter function that formats a number according to the formatting options of this Numer object.
 
-#### Syntax
-
 ```js
 format(number)
 ```
 
 #### Parameters
 
-##### number
-
-A Number or BigInt to format.
+* number
+  * A Number or BigInt to format.
 
 ## 💡 Usage
 
