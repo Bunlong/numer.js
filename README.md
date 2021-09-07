@@ -64,6 +64,9 @@ format(number)
 ### 🎀 format()
 
 ```js
+// Node.js
+const Numer = require("numer.js");
+
 console.log(new Numer({ style: 'comma' }).format(1000000));
 // expected output: "1,000,000"
 
