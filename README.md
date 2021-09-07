@@ -71,7 +71,7 @@ console.log(new Numer({ style: 'comma' }).format(1000000));
 // expected output: "1,000,000"
 
 console.log(new Numer({ style: 'abbreviation' }).format(9812730));
-// expected output: 9.8M
+// expected output: "9.8M"
 
 console.log(new Numer({ style: 'ordinal' }).format(1));
 // expected output: "1st"
