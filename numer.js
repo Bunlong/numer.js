@@ -14,25 +14,24 @@
   }
 })(this, function() {
   'use strict';
-  
+
   function Numer(input) {
     this._input = input;
   }
 
   Numer.prototype = {
-    format: function (number, decPlaces) {
-      var { style } = this._input;
+    format: function(number) {
+      var _input = this._input;
       var _number = number;
-      var _decPlaces = decPlaces;
-      switch(style) {
+      switch(_input.style) {
         case 'comma':
           return addCommas(_number);
         case 'abbreviation':
-          return abbreviate(_number, _decPlaces)
+          return abbreviate(_number);
         case 'ordinal':
-            return convertToOrdinal(_number)
+            return convertToOrdinal(_number);
         default:
-          throw 'The formatting style to use are comma, abbreviation and ordinal.';
+          throw new Error('The formatting style to use: comma, abbreviation and ordinal.');
       }
     }
   };
@@ -41,39 +40,28 @@
     return _number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
 
-  function abbreviate(_number, _decPlaces) {
-    // 2 decimal places => 100, 3 decimal places => 1000, ... etc.
-    _decPlaces = Math.pow(10, _decPlaces);
-
-    // Enumerate number abbreviations.
-    var abbrev = ['k', 'm', 'b', 't'];
-
-    // Go through the array backwards, so we do the largest first.
-    for (var i = abbrev.length - 1; i >= 0; i--) {
-      // Convert array index to '1000', '1000000', ... etc.
-      var size = Math.pow(10, (i + 1) * 3);
-
-      // If the number is bigger or equal do the abbreviation
-      if (size <= _number) {
-        // We multiply by decPlaces, round, and then divide by decPlaces.
-        // This gives us nice rounding to a particular decimal place.
-        _number = Math.round((_number * _decPlaces) / size) / _decPlaces;
-
-        // Handle special case where we round up to the next abbreviation
-        if (_number === 1000 && i < abbrev.length - 1) {
-          _number = 1;
-          i++;
+  function abbreviate(_value) {
+    var _newValue = _value;
+    if (_value >= 1000) {
+      var _suffixes = ['', 'K', 'M', 'B', 'T'];
+      var _suffixNum = Math.floor(('' + _value).length / 3);
+      var _shortValue = '';
+      for (var precision = 2; precision >= 1; precision--) {
+        _shortValue = parseFloat(
+          (_suffixNum !== 0
+            ? _value / Math.pow(1000, _suffixNum)
+            : _value
+          ).toPrecision(precision)
+        );
+        var dotLessShortValue = (_shortValue + '').replace(/[^a-zA-Z 0-9]+/g, '');
+        if (dotLessShortValue.length <= 2) {
+          break;
         }
-
-        // Add the letter for the abbreviation.
-        _number += abbrev[i];
-
-        // We are done... stop.
-        break;
       }
+      if (_shortValue % 1 !== 0) _shortValue = _shortValue.toFixed(1);
+      _newValue = _shortValue + _suffixes[_suffixNum];
     }
-
-    return _number;
+    return _newValue;
   }
 
   function convertToOrdinal(_number) {

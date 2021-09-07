@@ -1,11 +1,11 @@
 # numer.js
 
-Convert a number inputted into the different formats with numer.js.
+Numer.js is an open-source JavaScript library for formatting and manipulating numbers.
 
 ## 🎁 Features
 
-* Numer(options) constructor
-  * format() Getter function that formats a number according to the formatting options of this Numer object.
+* Numer() constructor
+  * format() instance method
 
 ## 🔧 Install
 
@@ -21,44 +21,63 @@ numer.js is available on yarn as well. It can be installed with the following co
 yarn add numer.js --save
 ```
 
+## 📖 Documentation
+
+### Constructor
+
+* Numer(options)
+  * Creates a new Numer object.
+
+#### Syntax
+
+```js
+new Numer(options)
+```
+
+#### Parameters
+
+##### options
+
+An object with some or all of the following properties:
+
+###### style
+
+The formatting style to use.
+
+* comma for comma formatting.
+* abbreviation for abbreviation formatting.
+* ordinal for ordinal formatting.
+
+### Instance methods
+
+* Numer.prototype.format(number)
+  * Getter function that formats a number according to the formatting options of this Numer object.
+
+#### Syntax
+
+```js
+format(number)
+```
+
+#### Parameters
+
+##### number
+
+A Number or BigInt to format.
+
 ## 💡 Usage
 
-### 🎀 addCommas(number)
-
-Readable number formatting.
+### 🎀 format()
 
 ```js
-const value = addCommas(22200000);
+console.log(new Numer({ style: 'comma' }).format(1000000));
+// expected output: "1,000,000"
 
-// => 22,200,000
-```
+console.log(new Numer({ style: 'abbreviation' }).format(9812730));
+// expected output: 9.8M
 
-### 🎀 abbreviate(number, decimalPlaces)
-
-Abbreviate number formatting.
-
-```js
-const value = abbreviate(22200000, 2);
-
-// => 22m
-```
-
-### 🎀 convertToOrdinal(number)
-
-Format rankings or positions.
-
-```js
-const ranking = convertToOrdinal(1);
-
-// => 1st
-```
-
-### 🎀 randomInt
-
-Show a CTA in random positions.
-
-```js
-const indexToAppear = randomInt(0, array.length);
+console.log(new Numer({ style: 'ordinal' }).format(1));
+// expected output: "1st"
 ```
 
 ## ❗ Issues
