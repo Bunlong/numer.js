@@ -21,6 +21,8 @@ numer.js is available on yarn as well. It can be installed with the following co
 yarn add numer.js --save
 ```
 
+If you don't want to use npm or yarn, [numer.min.js](https://unpkg.com/numer.js@0.1.0/numer.min.js) can be downloaded to your project source.
+
 ## 📖 Documentation
 
 ### Constructor
