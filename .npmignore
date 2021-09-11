@@ -1,4 +1,7 @@
 _gitignore/
 bower_components/
-node_modules/
 docs/
+supports/
+node_modules/
+Gruntfile.js
+package-lock.json

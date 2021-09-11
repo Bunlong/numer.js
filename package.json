@@ -1,7 +1,7 @@
 {
   "name": "numer.js",
   "version": "0.1.0",
-  "description": "Convert a number inputted into the different formats with numer.js.",
+  "description": "An open-source JavaScript library for formatting and manipulating numbers.",
   "author": "Bunlong <bunlong.van@gmail.com>",
   "main": "numer.js",
   "browser": "numer.min.js",

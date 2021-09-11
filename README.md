@@ -1,13 +1,11 @@
 # numer.js
 
-Convert a number inputted into the different formats with numer.js.
+Numer.js is an open-source JavaScript library for formatting and manipulating numbers.
 
 ## 🎁 Features
 
-* addCommas
-* abbreviate
-* convertToOrdinal
-* randomInt
+* Numer() constructor
+  * format() instance method
 
 ## 🔧 Install
 
@@ -23,44 +21,62 @@ numer.js is available on yarn as well. It can be installed with the following co
 yarn add numer.js --save
 ```
 
+If you don't want to use npm or yarn, [numer.min.js](https://unpkg.com/numer.js@0.1.0/numer.min.js) can be downloaded to your project source.
+
+## 📖 Documentation
+
+### Constructor
+
+* Numer(options)
+  * Creates a new Numer object.
+
+```js
+new Numer(options)
+```
+
+#### Parameters
+
+* options
+  * An object with some or all of the following properties.
+
+#### style
+
+The formatting style to use.
+
+* comma for comma formatting.
+* abbreviation for abbreviation formatting.
+* ordinal for ordinal formatting.
+
+### Instance methods
+
+* Numer.prototype.format(number)
+  * Getter function that formats a number according to the formatting options of this Numer object.
+
+```js
+format(number)
+```
+
+#### Parameters
+
+* number
+  * A Number or BigInt to format.
+
 ## 💡 Usage
 
-### 🎀 addCommas(number)
-
-Readable number formatting.
+### 🎀 format()
 
 ```js
-const value = addCommas(22200000);
+// Node.js
+const Numer = require("numer.js");
 
-// => 22,200,000
-```
+console.log(new Numer({ style: 'comma' }).format(1000000));
+// expected output: "1,000,000"
 
-### 🎀 abbreviate(number, decimalPlaces)
+console.log(new Numer({ style: 'abbreviation' }).format(9812730));
+// expected output: "9.8M"
 
-Abbreviate number formatting.
-
-```js
-const value = abbreviate(22200000, 2);
-
-// => 22m
-```
-
-### 🎀 convertToOrdinal(number)
-
-Format rankings or positions.
-
-```js
-const ranking = convertToOrdinal(1);
-
-// => 1st
-```
-
-### 🎀 randomInt
-
-Show a CTA in random positions.
-
-```js
-const indexToAppear = randomInt(0, array.length);
+console.log(new Numer({ style: 'ordinal' }).format(1));
+// expected output: "1st"
 ```
 
 ## ❗ Issues
