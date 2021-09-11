@@ -30,17 +30,19 @@ License: MIT
     format: function(number) {
       var _input = this._input;
       var _number = number;
-      switch(_input.style) {
+      switch (_input.style) {
         case 'comma':
           return addCommas(_number);
         case 'abbreviation':
           return abbreviate(_number);
         case 'ordinal':
-            return convertToOrdinal(_number);
+          return convertToOrdinal(_number);
         default:
-          throw new Error('The formatting style to use: comma, abbreviation and ordinal.');
+          throw new Error(
+            'The formatting style to use: comma, abbreviation and ordinal.'
+          );
       }
-    }
+    },
   };
 
   function addCommas(_number) {
@@ -60,7 +62,10 @@ License: MIT
             : _value
           ).toPrecision(precision)
         );
-        var dotLessShortValue = (_shortValue + '').replace(/[^a-zA-Z 0-9]+/g, '');
+        var dotLessShortValue = (_shortValue + '').replace(
+          /[^a-zA-Z 0-9]+/g,
+          ''
+        );
         if (dotLessShortValue.length <= 2) {
           break;
         }
@@ -73,7 +78,7 @@ License: MIT
 
   function convertToOrdinal(_number) {
     var _j = _number % 10;
-    var  _k = _number % 100;
+    var _k = _number % 100;
     if (_j === 1 && _k !== 11) {
       return _number + 'st';
     }
