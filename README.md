@@ -79,6 +79,15 @@ console.log(new Numer({ style: 'ordinal' }).format(1));
 // expected output: "1st"
 ```
 
+## 📜 Changelog
+
+Latest version 0.1.0 (2021-09-07):
+
+  * Numer() constructor
+    * format() instance method
+
+Details changes for each release are documented in the [CHANGELOG.md](https://github.com/Bunlong/numer.js/blob/master/CHANGELOG.md).
+
 ## ❗ Issues
 
 If you think any of the `numer.js` can be improved, please do open a PR with any updates and submit any issues. Also, I will continue to improve this, so you might want to watch/star this repository to revisit.
