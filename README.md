@@ -2,6 +2,8 @@
 
 Numer.js is an open-source JavaScript library for formatting and manipulating numbers.
 
+[![NPM](https://img.shields.io/npm/v/numer.js.svg)](https://www.npmjs.com/package/numer.js) ![npm bundle size](https://img.shields.io/bundlephobia/min/numer.js) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
 ## 🎁 Features
 
 * Numer() constructor
