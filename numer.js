@@ -1,3 +1,10 @@
+/* @license
+numer.js
+v0.1.0
+https://github.com/bunlong/numer.js
+License: MIT
+*/
+
 (function(root, factory) {
   /* globals define */
   if (typeof define === 'function' && define.amd) {
@@ -13,19 +20,6 @@
     root.Numer = factory();
   }
 })(this, function() { 'use strict';
-  var global = (function() {
-    // alternative method, similar to `Function('return this')()`
-    // but without using `eval` (which is disabled when
-    // using Content Security Policy).
-
-    if (typeof self !== 'undefined') { return self; }
-    if (typeof window !== 'undefined') { return window; }
-    if (typeof global !== 'undefined') { return global; }
-
-    // When running tests none of the above have been defined
-    return {};
-  })();
-
   var Numer = {};
 
   Numer.addCommas = addCommas;
